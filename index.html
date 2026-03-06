@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Village Family Tree</title>
+</head>
+
+<body>
+
+<h1>Village Family Tree</h1>
+
+<h3>Add Person</h3>
+
+<input id="name" placeholder="Name">
+<input id="father" placeholder="Father">
+<input id="mother" placeholder="Mother">
+
+<button onclick="addPerson()">Add</button>
+
+<ul id="people"></ul>
+
+<script>
+
+let people = []
+
+function addPerson(){
+
+let name = document.getElementById("name").value
+let father = document.getElementById("father").value
+let mother = document.getElementById("mother").value
+
+people.push({name,father,mother})
+
+displayPeople()
+
+}
+
+function displayPeople(){
+
+let list = document.getElementById("people")
+list.innerHTML=""
+
+people.forEach(p=>{
+let li = document.createElement("li")
+li.innerText = p.name + " | Father: "+p.father
+list.appendChild(li)
+})
+
+}
+
+</script>
+
+</body>
+</html>
